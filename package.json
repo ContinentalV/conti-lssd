@@ -1,0 +1,30 @@
+{
+  "name": "cn5-em",
+  "version": "3.0.0",
+  "description": "bot ems configurable",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neogetsu/CN5-EMS.git"
+  },
+  "author": "Neo-getsu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neogetsu/CN5-EMS/issues"
+  },
+  "homepage": "https://github.com/Neogetsu/CN5-EMS#readme",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.41",
+    "axios": "^1.4.0",
+    "chalk": "^4.1.2",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.0.3",
+    "mongoose": "^7.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -12,9 +12,9 @@ const lssdSchema = mongoose.Schema({
     service: {pds: {type: Number, default: 0}, fds: {type:Number, default: 0}, workingTime: {type: Number, default:0}},
     isService: {type:Boolean, default: false},
     isCity: {type:Boolean, default: false},
-    paye: {type: Number, default: 0},
     historique: Array,
     resetTime: Number,
+    profileCompleted: Boolean
 
 })
 

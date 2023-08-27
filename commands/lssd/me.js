@@ -26,9 +26,6 @@ module.exports = {
 
         const LSSD = await dbLssd.findOne({ id: user.id })
         const {
-            service,
-            isService,
-              isCity,
             avatar,
             discordName
         } = LSSD
@@ -42,18 +39,10 @@ module.exports = {
             > - Temps effectuer: \`\`${work.hours ? ` ${work.hours} Heures et ${work.minute} minutes` : `0 Heures et ${work.minute} minutes`}\`\`
             > - Derniere prise de service: \`\` ${dayjs(LSSD?.historique[LSSD?.historique?.length - 1]?.pds).format('DD-MM-YYYY - HH:mm:ss')} \`\`  
             ━━━━━━━━━❪❃❫━━━━━━━━━`)
-            .addFields(
-                {
-                    name: `EN PDS`,
-                    value: ` \`\`${isService ? `🟢🟢🟢\n>  Démarrer à: ${dayjs(LSSD.service.pds).format('DD-MM-YYYY - HH:mm:ss')}` : "🔴🔴🔴"}\`\` `,
-                    inline: true
-                })
             .setTimestamp()
             .setThumbnail(avatar)
             .setFooter({ text: `Request by ${member.nickname}`, iconURL: member.displayAvatarURL({ dynamic: true }) })
-
-
-            interaction.reply({embeds: [embeds]})
+            interaction.reply({embeds: [embeds], ephemeral:true})
     }
 }
 

@@ -8,7 +8,7 @@ const lssdSchema = mongoose.Schema({
     prenom: {type: String, required: false},
     avatar: String,
     grade: {type: String, required:true },
-    matricule: {type: String, required: false},
+    matricule: {type:Number, required: true, default: 0},
     service: {pds: {type: Number, default: 0}, fds: {type:Number, default: 0}, workingTime: {type: Number, default:0}},
     isService: {type:Boolean, default: false},
     isCity: {type:Boolean, default: false},

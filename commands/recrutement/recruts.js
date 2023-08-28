@@ -25,34 +25,26 @@ module.exports = {
                 .setName('prenom')
                 .setDescription("Indiquez le Prénom de l'agent")
                 .setRequired(true)
-        )
-        .addNumberOption(option =>
-            option
-                .setName('matricule')
-                .setDescription("Indiquez le matricule de l'agent")
-                .setRequired(true)
-        )
-    ,
+        ),
     async execute(interaction) {
 
         const {member, user, guild, client, options } = interaction;
         const targetId = options.getUser('agent-lssd').id
-        const matricule = options.getNumber('matricule')
         const LSSD = await dbLssd.findOne({id: targetId})
 
         const target = await guild.members.fetch(targetId)
-            .then((m) => console.log(m))
-        //target.setNickname( `${matricule} | ${options.getString('nom')}`)
+
+        target.setNickname( `${LSSD.grade} | ${options.getString('nom')}`)
 
 
 
             const dataToUpdate = {
                 nom: options.getString('nom') ,
                 prenom: options.getString('prenom'),
-                matricule: '',
+
             }
 
-            interaction.reply({content: JSON.stringify(dataToUpdate)})
+            interaction.reply({content: "done"})
 
 
     }

@@ -40,7 +40,7 @@ module.exports = {
         target.setNickname( `${LSSD.grade} | ${options.getString('nom')}`)
 
         const roleIdGrade = Object.values(grades).find(grade => grade.alias === `${LSSD.grade.replace(LSSD.matricule, "M")}`)
-
+        
         // const gradeName = guild.roles.cache.find(r => r.id === grade)
 
 

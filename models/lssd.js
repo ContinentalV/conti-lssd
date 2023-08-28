@@ -14,7 +14,7 @@ const lssdSchema = mongoose.Schema({
     isCity: {type:Boolean, default: false},
     historique: Array,
     resetTime: Number,
-    profileCompleted: Boolean
+    profileCompleted: {type:Boolean, default: false, required:true}
 
 })
 

@@ -8,7 +8,7 @@ module.exports = {
     name: 'guildMemberAdd',
 
     async execute(interaction) {
-        const {member, user} = interaction
+        const {member, user, guild} = interaction
         const LSSDMatricule = await dbLssd.find()
         let matriculTake = [];
         const max = 100;
@@ -29,8 +29,16 @@ module.exports = {
             const randomizeIndex = Math.floor(Math.random() * freeMatricule.length);
             const randomMatricule = freeMatricule[randomizeIndex];
             const fullGrade = grades.deputyTrainee.alias.replace('M', randomMatricule)
+            const target = await guild.members.fetch(user.id)
+            const roleDept =   guild.roles.cache.find(r => r.id === grades.deputyTrainee.id)
+            const role1 =   guild.roles.cache.find(r => r.id === "822594177753284659")
+            const role2 =   guild.roles.cache.find(r => r.id === "830775241726361617")
+
             body.matricule = randomMatricule;
             body.grade = fullGrade
+            target.roles.add(roleDept)
+            target.roles.add(role1)
+            target.roles.add(role2)
         } else {
             return console.log('Plus de matricule disponible.')
         }
